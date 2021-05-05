@@ -1,5 +1,10 @@
-﻿// this is the background page!
-chrome.runtime.onMessage.addListener(onMessage);
+// this is the background page!
+
+if (typeof chrome !== "undefined") {
+  var browser = chrome;
+}
+
+browser.runtime.onMessage.addListener(onMessage);
 
 function onMessage(messageEvent, sender, callback)
 {
@@ -17,8 +22,7 @@ function onMessage(messageEvent, sender, callback)
         });
     }
 }
-
-chrome.webRequest.onHeadersReceived.addListener(function(details)
+browser.webRequest.onHeadersReceived.addListener(function(details)
 {
     for (var i = 0; i < details.responseHeaders.length; ++i) 
     {
