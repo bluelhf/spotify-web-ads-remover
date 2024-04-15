@@ -24,8 +24,7 @@ function onMessage(messageEvent, sender, callback)
 }
 browser.webRequest.onHeadersReceived.addListener(function(details)
 {
-    console.log(details);
-    for (var i = 0; i < details.responseHeaders.length; ++i) 
+    for (var i = 0; i < details.responseHeaders.length; ++i)
     {
         if (details.responseHeaders[i].name.toLowerCase() == "content-security-policy")
         {
@@ -42,7 +41,6 @@ browser.webRequest.onHeadersReceived.addListener(function(details)
             }
 
             details.responseHeaders[i].value = entries.join(";");
-            console.log(details.responseHeaders);
         }
     }
 
