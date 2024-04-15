@@ -1,4 +1,4 @@
-> **Note**  
+> [!IMPORTANT]  
 > This repository adds [Firefox support by Felix Brunet](https://github.com/tomer8007/spotify-web-ads-remover/pull/2)
 > and my own fix for content script injection with Spotify's new hash- and nonce sources.
 
