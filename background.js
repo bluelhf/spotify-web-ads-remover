@@ -24,6 +24,7 @@ function onMessage(messageEvent, sender, callback)
 }
 browser.webRequest.onHeadersReceived.addListener(function(details)
 {
+    console.log(details);
     for (var i = 0; i < details.responseHeaders.length; ++i) 
     {
         if (details.responseHeaders[i].name.toLowerCase() == "content-security-policy")
@@ -35,12 +36,13 @@ browser.webRequest.onHeadersReceived.addListener(function(details)
                 if (entries[j].includes("script-src"))
                 {
                     // a hack to allow the page to load our injected inline scripts
-                    entries[j] += " 'unsafe-inline'"; 
+                    entries[j] = entries[j].replaceAll(/'(nonce|sha\d+)-[a-zA-Z0-9+\/=]+'/g, '');
+                    entries[j] += " 'unsafe-inline'";
                 }
             }
 
             details.responseHeaders[i].value = entries.join(";");
-            
+            console.log(details.responseHeaders);
         }
     }
 
