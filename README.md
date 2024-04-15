@@ -1,3 +1,7 @@
+> **Note**  
+> This repository adds [Firefox support by Felix Brunet](https://github.com/tomer8007/spotify-web-ads-remover/pull/2)
+> and my own fix for content script injection with Spotify's new hash- and nonce sources.
+
 # Ad Blocker for Spotify Web
 This is an experimental, simple chrome extension to remove audio ads on Spotify web player.
 It's available on the [Chrome Web Store](https://chrome.google.com/webstore/detail/spotify-ads-remover/mghhlojofjipigjobacbjdngmjafdeim?hl=iw&authuser=0) too.
